@@ -1,0 +1,5 @@
+package com.niit.secprobackend.dao;
+
+public class UserDAO {
+
+}

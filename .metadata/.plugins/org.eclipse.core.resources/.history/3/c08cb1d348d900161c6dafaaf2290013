@@ -1,0 +1,5 @@
+package com.niit.secprobackend.config;
+
+public class AppContext {
+
+}
