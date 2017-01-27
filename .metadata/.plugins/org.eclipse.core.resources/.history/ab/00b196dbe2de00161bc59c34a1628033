@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.niit.secprobackend.dao.JobDao;
 import com.niit.secprobackend.model.Job;
 
-@SuppressWarnings("deprecation")
 @Repository
 public class JobDaoImpl implements JobDao 
 {

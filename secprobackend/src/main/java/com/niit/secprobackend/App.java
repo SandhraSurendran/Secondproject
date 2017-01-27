@@ -3,7 +3,7 @@ package com.niit.secprobackend;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
-import com.niit.secprobackend.config.AppContextConfig;
+import com.niit.secprobackend.config.WebAppConfig;
 import com.niit.secprobackend.dao.UserDAO;
 import com.niit.secprobackend.model.User;
 
@@ -13,9 +13,11 @@ import com.niit.secprobackend.model.User;
  */
 public class App 
 {
-    public static void main( String[] args )
+    private static AbstractApplicationContext context;
+
+	public static void main( String[] args )
     {
-       AbstractApplicationContext context=new AnnotationConfigApplicationContext(AppContextConfig.class);
+       context = new AnnotationConfigApplicationContext(App.class);
        
        UserDAO userDAO=(UserDAO)context.getBean("userDAO");
        
