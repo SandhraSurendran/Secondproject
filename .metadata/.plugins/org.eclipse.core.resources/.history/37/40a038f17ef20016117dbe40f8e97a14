@@ -1,0 +1,5 @@
+package com.niit.secprorest.service;
+
+public class UploadServiceDao {
+
+}

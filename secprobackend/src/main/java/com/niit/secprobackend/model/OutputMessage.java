@@ -2,23 +2,25 @@ package com.niit.secprobackend.model;
 
 import java.util.Date;
 
-public class OutputMessage extends Message 
-{
-private Date time;
-	
-	public OutputMessage(Message original,Date time) 
-	{
-		super(original.getId(),original.getMessage());
+public class OutputMessage extends Message {
+
+	private Date time;
+
+	public OutputMessage() {
+		super();
+	}
+
+	public OutputMessage(Message message, Date time) {
+		super(message.getId(), message.getMessage(), message.getUsername());
 		this.time = time;
 	}
-	
-	public Date getTime() 
-	{
+
+	public Date getTime() {
 		return time;
 	}
-	
-	public void setTime(Date time) 
-	{
+
+	public void setTime(Date time) {
 		this.time = time;
 	}
+
 }

@@ -1,34 +1,42 @@
 package com.niit.secprobackend.model;
 
-public class Message 
-{
-	  private String message;
-	  private int id;
-	  public Message() { }
-	  
-	  public Message(int id, String message) 
-	  {
-	    this.id = id;
-	    this.message = message ;
-	  }
+public class Message {
 
-	  public String getMessage() 
-	  {
-	    return message;
-	  }
+	private int id;
+	private String message;
+	private String username;
 
-	  public void setMessage(String message) 
-	  {
-	    this.message = message;
-	  }
+	public Message() {
+	}
 
-	  public int getId() 
-	  {
-	    return id;
-	  }
+	public Message(int id, String message, String username) {
+		this.id = id;
+		this.message = message;
+		this.username = username;
+	}
 
-	  public void setId(int id) 
-	  {
-	    this.id = id;
-	  }
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 }

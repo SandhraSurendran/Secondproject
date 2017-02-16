@@ -14,56 +14,44 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 @Configuration
-@ComponentScan(basePackages="com.niit")
+@ComponentScan(basePackages = "com.niit")
 public class AppContextConfig {
-	
-	@Bean("dataSource")
-	public DataSource getH2DataSource()
-	{
-		BasicDataSource dataSource=new BasicDataSource();
-		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
+	@Bean(name = "dataSource")
+	public DataSource getOracleDataSource() {
+		BasicDataSource dataSource = new BasicDataSource();
+
+		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("user27122016");
-		dataSource.setPassword("password");
-		
+		dataSource.setUsername("test");
+		dataSource.setPassword("oracle");
+
 		return dataSource;
-		
 	}
-	
+
 	@Autowired
-	@Bean
-	public LocalSessionFactoryBean getSessionFactory(DataSource dataSource)
-	{
-		LocalSessionFactoryBean sessionFactory=new LocalSessionFactoryBean();
+	@Bean(name = "sessionFactory")
+	public LocalSessionFactoryBean getSessionFactory(DataSource dataSource) {
+		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+
 		sessionFactory.setDataSource(dataSource);
 		sessionFactory.setHibernateProperties(getHibernateProperties());
-		sessionFactory.setPackagesToScan(new String[] {"com.niit.restexample.backend.model"});
-	
+		sessionFactory.setPackagesToScan(new String[] { "com.niit.secprobackend.model" });
+
 		return sessionFactory;
 	}
-	
-	
-	public Properties getHibernateProperties()
-	{
-		Properties properties=new Properties();
-		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
-		properties.setProperty("hibernate.show_sql", "true");
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
-		
+
+	private Properties getHibernateProperties() {
+		Properties properties = new Properties();
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
+		properties.put("hibernate.hbm2ddl.auto", "update");
 		return properties;
 	}
-	
-	
+
 	@Autowired
-	@Bean
-	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory)
-	{
-		HibernateTransactionManager transactionManager=new HibernateTransactionManager();
-		transactionManager.setSessionFactory(sessionFactory);
-		
+	@Bean(name = "transactionManager")
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
+		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
 	}
-
-
-
 }

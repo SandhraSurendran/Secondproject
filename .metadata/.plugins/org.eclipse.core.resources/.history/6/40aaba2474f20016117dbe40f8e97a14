@@ -1,0 +1,5 @@
+package com.niit.secprorest.config;
+
+public class WebAppInitializer {
+
+}

@@ -9,53 +9,82 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="c_job")
-public class Job 
-{
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-private int jobId;
-private String jobTitle;
-private String jobDescription;
-private Date postedOn;
-private String skillsRequired;
-private String salary;
+@Table(name = "CP_JOB", schema = "test")
+public class Job {
 
-public int getJobId() {
-	return jobId;
-}
-public void setJobId(int jobId) {
-	this.jobId = jobId;
-}
-public String getJobTitle() {
-	return jobTitle;
-}
-public void setJobTitle(String jobTitle) {
-	this.jobTitle = jobTitle;
-}
-public String getJobDescription() {
-	return jobDescription;
-}
-public void setJobDescription(String jobDescription) {
-	this.jobDescription = jobDescription;
-}
-public Date getPostedOn() {
-	return postedOn;
-}
-public void setPostedOn(Date postedOn) {
-	this.postedOn = postedOn;
-}
-public String getSkillsRequired() {
-	return skillsRequired;
-}
-public void setSkillsRequired(String skillsRequired) {
-	this.skillsRequired = skillsRequired;
-}
-public String getSalary() {
-	return salary;
-}
-public void setSalary(String salary) {
-	this.salary = salary;
-}
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long jobId;
+	private String title;
+	private String description;
+	private Date dateTime;
+	private String qualification;
+	private String status;
+	private int vacancy;
+	private String location;
+
+	public long getJobId() {
+		return jobId;
+	}
+
+	public void setJobId(long jobId) {
+		this.jobId = jobId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Date getDateTime() {
+		return dateTime;
+	}
+
+	public void setDateTime(Date dateTime) {
+		this.dateTime = dateTime;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getVacancy() {
+		return vacancy;
+	}
+
+	public void setVacancy(int vacancy) {
+		this.vacancy = vacancy;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 }

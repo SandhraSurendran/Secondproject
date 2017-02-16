@@ -1,66 +1,67 @@
 package com.niit.secprobackend.model;
 
-import javax.annotation.Generated;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="c_friend")
-public class Friend 
-{
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-private int id;
+@Table(name = "CP_FRIEND", schema = "test")
+public class Friend {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	@OneToOne
+	@JoinColumn(name = "userId")
+	private User user;
+	@ManyToOne
+	@JoinColumn(name = "friendId")
+	private User friend;
+	private String status;
+	private boolean isOnline;
 
-@Column(name="from_id")
-private String fromId;
+	public long getId() {
+		return id;
+	}
 
-@Column(name="to_id")
-private String toId;
+	public void setId(long id) {
+		this.id = id;
+	}
 
-private char status;//  'A'  , 'D',  'P'
+	public User getUser() {
+		return user;
+	}
 
-public int getId() 
-{
-	return id;
-}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-public void setId(int id) 
-{
-	this.id = id;
-}
+	public User getFriend() {
+		return friend;
+	}
 
-public String getFromId() 
-{
-	return fromId;
-}
+	public void setFriend(User friend) {
+		this.friend = friend;
+	}
 
-public void setFromId(String fromId) 
-{
-	this.fromId = fromId;
-}
+	public String getStatus() {
+		return status;
+	}
 
-public String getToId() 
-{
-	return toId;
-}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-public void setToId(String toId) 
-{
-	this.toId = toId;
-}
+	public boolean isOnline() {
+		return isOnline;
+	}
 
-public char getStatus() 
-{
-	return status;
-}
+	public void setOnline(boolean isOnline) {
+		this.isOnline = isOnline;
+	}
 
-public void setStatus(char status) 
-{
-	this.status = status;
-}
 }

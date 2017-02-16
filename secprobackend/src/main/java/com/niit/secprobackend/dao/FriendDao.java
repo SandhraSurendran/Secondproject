@@ -4,10 +4,20 @@ import java.util.List;
 
 import com.niit.secprobackend.model.Friend;
 
-public interface FriendDao 
-{
-	List<Friend> getAllFriends(String username);
-	void sendFriendRequest(String from,String to);
-	List<Friend> getPendingRequest(String username);
-	void updatePendingRequest(char friendStatus,String fromId,String toId);
+public interface FriendDao {
+	
+	void add(Friend friend);
+	
+	void update(Friend friend);
+	
+	Friend getFriend(long userId, long friendId);
+	
+	List<Friend> listMyFriends(long userId);
+	
+	List<Friend> listNewFriendRequests(long userId);
+	
+	void setOnline(long userId);
+	
+	void setOffline(long userId);
+	
 }
