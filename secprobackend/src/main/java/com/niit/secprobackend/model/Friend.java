@@ -10,7 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CP_FRIEND", schema = "test")
+@Table(name = "FRIEND", schema = "test")
 public class Friend {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
+
 @Configuration
 @ComponentScan(basePackages = "com.niit")
 public class AppContextConfig {
@@ -20,10 +21,10 @@ public class AppContextConfig {
 	public DataSource getOracleDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 
-		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
+		dataSource.setDriverClassName("oracle.jdbc.Driver.OracleDriver");
 		dataSource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
-		dataSource.setUsername("test");
-		dataSource.setPassword("oracle");
+		dataSource.setUsername("SECONDPROJECTC");
+		dataSource.setPassword("backend");
 
 		return dataSource;
 	}
